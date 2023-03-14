@@ -3,7 +3,7 @@ const bodyParser =require('body-parser')
 const cors =require('cors')
 const env = require("dotenv").config()
 const mongoose =require('mongoose')
-//const registrationRouter = require('./routes/registrationRoutes.js')
+const noteRouter = require('./routes/noteRoutes.js')
 mongoose.set('strictQuery', false)
 
 
@@ -15,8 +15,8 @@ app.use(bodyParser.json({extended:true}));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 
-
-//app.use("/api/v1/register",registrationRouter )
+//Routes
+app.use("/api/v1/notes",noteRouter )
 
 //Defie PORT and Database
 const PORT = process.env.PORT || 5000;
